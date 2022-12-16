@@ -9,11 +9,11 @@ ed emetto un messaggio in console con il numero della cella cliccata.
 */
 
 // ! FUNCTIONS ------------------------------------------------
-const createCell = () => {
+const createCell = (content) => {
     const cell = document.createElement('div');
+    cell.append(content);
     cell.classList.add('cell');
     return cell;
-
 }
 
 
@@ -33,13 +33,13 @@ button.addEventListener('click', function () {
 // Renderizziamo le celle
 for (let i = 0; i < totalCells; i++){
     // Creo una cella 
-    const cell = createCell();
+    const cell = createCell(i + 1);
     // Aggiungo un event listener sulla singola cella per cambiare colore
     cell.addEventListener('click', function() {
         cell.classList.add('clicked');
     });
     // Appendo in pagina
     grid.appendChild(cell);
-    }
+}
 
 });
