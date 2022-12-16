@@ -9,6 +9,18 @@ ed emetto un messaggio in console con il numero della cella cliccata.
 */
 
 /* 
-1 - Creo una griglia 10 x 10;
+- Prendo gli elementi dal DOM;
+- Aggancio l'event listener al button play;
+
 */
+// ! OPERAZIONI PRELIMINARI -----------------------------------
+// Prendo gli elementi dal DOM;
+const grid = document.getElementById('grid');
+const button = document.getElementById('button');
+
+// Impostazioni iniziali 
+const rows = 10;
+const cols = 10;
+const totalCells = rows * cols;
+
 
