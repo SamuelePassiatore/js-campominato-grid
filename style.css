@@ -1,0 +1,49 @@
+  /* Custom properties */
+  :root{
+    --black: #000000;
+    --white: #fff;
+  }
+  
+  /* Generics */
+  body {
+    font-family: sans-serif;
+  }
+
+  header {
+    height: 80px;
+    background-color: aqua;
+  }
+
+  main {
+    background-color: red;
+    padding: 60px 0;
+  }
+
+  footer {
+    height: 60px;
+    background-color: yellow;
+  }
+
+  button {
+    border: 1px solid grey;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+
+  /* Utils */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  #grid {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .cell {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 1px solid black;
+  }
