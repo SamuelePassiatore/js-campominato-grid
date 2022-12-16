@@ -28,18 +28,24 @@ const cols = 10;
 const totalCells = rows * cols;
 
 // ! OPERAZIONI D'AVVIO ---------------------------------------
+let gridGenerated = false;
 // Aggancio l'event listener al button
 button.addEventListener('click', function () {
-// Renderizziamo le celle
-for (let i = 0; i < totalCells; i++){
-    // Creo una cella 
-    const cell = createCell(i + 1);
-    // Aggiungo un event listener sulla singola cella per cambiare colore
-    cell.addEventListener('click', function() {
-        cell.classList.add('clicked');
-    });
-    // Appendo in pagina
-    grid.appendChild(cell);
-}
-
+    if (gridGenerated){
+        return;
+    } else {
+        gridGenerated = true;
+        // Renderizziamo le celle
+        for (let i = 0; i < totalCells; i++){
+        // Creo una cella 
+        const cell = createCell(i + 1);
+        // Aggiungo un event listener sulla singola cella per cambiare colore
+        cell.addEventListener('click', () => {
+            cell.classList.toggle('clicked');
+            console.log(i + 1);
+        });
+        // Appendo in pagina
+        grid.appendChild(cell);
+        }
+    }
 });

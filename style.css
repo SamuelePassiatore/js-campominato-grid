@@ -11,17 +11,15 @@
 
   header {
     height: 80px;
-    background-color: aqua;
   }
 
   main {
-    background-color: red;
+    background-color: aquamarine;
     padding: 60px 0;
   }
 
   footer {
     height: 60px;
-    background-color: yellow;
   }
 
   button {
