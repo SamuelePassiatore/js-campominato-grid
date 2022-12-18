@@ -24,8 +24,13 @@
 
   button {
     border: 1px solid grey;
+    background-color: lightgray;
     font-size: 12px;
     padding: 0 16px;
+  }
+
+  select {
+    background-color: lightgray;
   }
 
   /* Utils */

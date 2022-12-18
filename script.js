@@ -16,26 +16,34 @@ const createCell = (content) => {
     return cell;
 }
 
-
 // ! OPERAZIONI PRELIMINARI -----------------------------------
 // Prendo gli elementi dal DOM
 const grid = document.getElementById('grid');
 const button = document.getElementById('button');
+const difficultyLevel = document.getElementById('difficulty-level');
 
 // Impostazioni iniziali 
-const rows = 10;
-const cols = 10;
-const totalCells = rows * cols;
+let rows = 10;
+let cols = 10;
+let totalCells = rows * cols;
 
 // ! OPERAZIONI D'AVVIO ---------------------------------------
 let gridGenerated = false;
 // Aggancio l'event listener al button
-button.addEventListener('click', function () {
+button.addEventListener('click', () => {
+    if (difficultyLevel.value === "1") {
+      totalCells = 100;
+    } else if (difficultyLevel.value === "2") {
+      totalCells = 81;
+    } else if (difficultyLevel.value === "3") {
+      totalCells = 49;
+    }
+
     if (gridGenerated){
         return;
     } else {
         gridGenerated = true;
-        // Renderizziamo le celle
+        // Renderizzo le celle
         for (let i = 0; i < totalCells; i++){
         // Creo una cella 
         const cell = createCell(i + 1);
