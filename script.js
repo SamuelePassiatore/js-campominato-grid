@@ -9,9 +9,9 @@ ed emetto un messaggio in console con il numero della cella cliccata.
 */
 
 // ! FUNCTIONS ------------------------------------------------
-const createCell = (content) => {
+const createCell = (number) => {
     const cell = document.createElement('div');
-    cell.append(content);
+    cell.append(number);
     cell.classList.add('cell');
     return cell;
 }
@@ -28,9 +28,16 @@ let cols = 10;
 let totalCells = rows * cols;
 
 // ! OPERAZIONI D'AVVIO ---------------------------------------
-let gridGenerated = false;
 // Aggancio l'event listener al button
 button.addEventListener('click', () => {
+  // Cambio il testo del bottone ricomincia
+  button.innerText = 'Ricomincia';
+  // Svuoto la griglia
+  grid.innerHTML = '';
+
+  // Prendo il livello dell'utente
+
+
     if (difficultyLevel.value === "1") {
       totalCells = 100;
     } else if (difficultyLevel.value === "2") {
@@ -39,21 +46,16 @@ button.addEventListener('click', () => {
       totalCells = 49;
     }
 
-    if (gridGenerated){
-        return;
-    } else {
-        gridGenerated = true;
-        // Renderizzo le celle
-        for (let i = 0; i < totalCells; i++){
-        // Creo una cella 
-        const cell = createCell(i + 1);
-        // Aggiungo un event listener sulla singola cella per cambiare colore
-        cell.addEventListener('click', () => {
-            cell.classList.toggle('clicked');
-            console.log(i + 1);
-        });
-        // Appendo in pagina
-        grid.appendChild(cell);
-        }
+    // Renderizzo le celle
+    for (let i = 0; i < totalCells; i++){
+      // Creo una cella 
+      const cell = createCell(i + 1);
+      // Aggiungo un event listener sulla singola cella per cambiare colore
+      cell.addEventListener('click', () => {
+      cell.classList.toggle('clicked');
+      console.log(i + 1);
+      });
+      // Appendo in pagina
+      grid.appendChild(cell);
     }
 });
