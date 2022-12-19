@@ -22,11 +22,6 @@ const grid = document.getElementById('grid');
 const button = document.getElementById('button');
 const difficultyLevel = document.getElementById('difficulty-level');
 
-// Impostazioni iniziali 
-let rows = 10;
-let cols = 10;
-let totalCells = rows * cols;
-
 // ! OPERAZIONI D'AVVIO ---------------------------------------
 // Aggancio l'event listener al button
 button.addEventListener('click', () => {
@@ -36,15 +31,28 @@ button.addEventListener('click', () => {
   grid.innerHTML = '';
 
   // Prendo il livello dell'utente
+  level = difficultyLevel.value;
 
+  // Aggiunta classe alla griglia
+  grid.classList.add(level);
 
-    if (difficultyLevel.value === "1") {
-      totalCells = 100;
-    } else if (difficultyLevel.value === "2") {
-      totalCells = 81;
-    } else if (difficultyLevel.value === "3") {
-      totalCells = 49;
-    }
+  // Calcolo righe e colonne
+  let cols;
+  let rows;
+  
+  switch (level) {
+    case 'medium':
+      cols = rows = 9;
+      break;
+    case 'easy':
+      cols = rows = 10;
+      break;
+    case 'hard':
+      cols = rows = 7;
+  }
+
+  // Calcolo il totale delle celle
+  const totalCells = cols * rows;
 
     // Renderizzo le celle
     for (let i = 0; i < totalCells; i++){
